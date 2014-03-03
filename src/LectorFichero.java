@@ -51,11 +51,9 @@ public class LectorFichero {
                 }
             }
 
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Error de parseo.");
-        }
-        finally {
+        } finally {
             return lineas;
         }
 
@@ -79,11 +77,9 @@ public class LectorFichero {
             String aux;
             String[] split;
 
-
             br.readLine(); //Línea que describe la gramática
 
             //Tratamos VN.
-
             aux = br.readLine(); //Línea de VN.
             String fragmento_VN = aux.substring(6, aux.length() - 1);
             split = fragmento_VN.split(", ");
@@ -92,7 +88,6 @@ public class LectorFichero {
             }
 
             //Tratamos VT.
-
             aux = br.readLine(); //Línea de VT.
             String linea_VT = aux.substring(6, aux.length() - 1);
             split = linea_VT.split(", ");
@@ -101,7 +96,6 @@ public class LectorFichero {
             }
 
             //Tratamos P.
-
             br.readLine(); //Línea de P.
 
             while ((aux = br.readLine()).compareTo("}") != 0) {
@@ -114,13 +108,11 @@ public class LectorFichero {
             }
 
             //Tratamos S.
-
             aux = br.readLine(); //Línea de S.
             String simI = aux.substring(4);
             simbInicial.setV(simI);
 
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Error de parseo.");
         }
 
@@ -133,8 +125,7 @@ public class LectorFichero {
             if (esTerminal(c, listaVN, listaVT)) {
                 VT consecuente = new VT(c + "");
                 toReturn.add(consecuente);
-            }
-            else {
+            } else {
                 toReturn.add(new VN(c + ""));
             }
         }
@@ -164,11 +155,9 @@ public class LectorFichero {
             String aux;
             String[] split;
 
-
             br.readLine(); //Línea que describe la gramática
 
             //Tratamos VN.
-
             aux = br.readLine(); //Línea de VN.
             String fragmento_VN = aux.substring(6, aux.length() - 1);
             split = fragmento_VN.split(", ");
@@ -177,7 +166,6 @@ public class LectorFichero {
             }
 
             //Tratamos VT.
-
             aux = br.readLine(); //Línea de VT.
             String linea_VT = aux.substring(6, aux.length() - 1);
             split = linea_VT.split(", ");
@@ -186,7 +174,6 @@ public class LectorFichero {
             }
 
             //Tratamos P.
-
             br.readLine(); //Línea de P.
 
             while ((aux = br.readLine()).compareTo("}") != 0) {
@@ -199,13 +186,11 @@ public class LectorFichero {
             }
 
             //Tratamos S.
-
             aux = br.readLine(); //Línea de S.
             String simI = aux.substring(4);
             simbInicial.setV(simI);
 
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Error de parseo.");
         }
 
@@ -225,7 +210,7 @@ public class LectorFichero {
             String aux;
 
             br.readLine();
-            
+
             //Saltamos VN.
             br.readLine(); //Línea de VN.
 
@@ -245,8 +230,7 @@ public class LectorFichero {
 
             return listaProducciones;
 
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Error de parseo.");
         }
         return new ArrayList<String>();

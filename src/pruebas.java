@@ -1,3 +1,4 @@
+
 import Symbols.VT;
 import java.io.File;
 import java.util.Collection;
@@ -27,13 +28,12 @@ public class pruebas {
     public static void main(String[] args) {
         Gramatica g = new Gramatica(desktop + "Gramatica_PR8.txt");
         AnalizadorAscendenteLR asLL = new AnalizadorAscendenteLR(g);
-        Collection<VT> cadena = devColeccion("id","+","id","*","(","id","+","id",")","$");
+        Collection<VT> cadena = devColeccion("id", "+", "id", "*", "(", "id", "+", "id", ")", "$");
         boolean analizar = asLL.analizar(cadena);
         System.out.print("La cadena " + devCadena(cadena));
         if (!analizar) {
             System.out.print(" no");
-        }
-        else {
+        } else {
             System.out.print(" SI");
         }
         System.out.println(" ha sido reconocida");

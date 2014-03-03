@@ -9,12 +9,12 @@ package Symbols;
  * @author Cristian
  */
 public class Aceptado {
-    
-    public Aceptado () {
+
+    public Aceptado() {
     }
-    
+
     @Override
-    public String toString () {
+    public String toString() {
         return "Ac";
     }
 }

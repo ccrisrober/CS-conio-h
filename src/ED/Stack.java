@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Stack<E> {
-    
+
     //Atributos
     protected List<E> stack;
 
@@ -34,24 +34,18 @@ public class Stack<E> {
     public boolean isEmpty() {
         return this.stack.isEmpty();
     }
-    
+
     @Override
-    public String toString () {
+    public String toString() {
         String aux = "";
-        /*for (int i = this.size() - 1; i > 0; i++) {
-            aux =
-        }*/
         for (E e: this.stack) {
             aux += e/* + aux*/;
         }
         return aux;
     }
-    
-    public String toString2 () {
+
+    public String toString2() {
         String aux = "";
-        /*for (int i = this.size() - 1; i > 0; i++) {
-            aux =
-        }*/
         for (E e: this.stack) {
             aux = e + aux;
         }

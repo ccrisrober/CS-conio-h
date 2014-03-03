@@ -1,3 +1,4 @@
+
 import Symbols.V;
 import Symbols.VN;
 import Symbols.VT;
@@ -22,7 +23,6 @@ public class Gramatica {
         this.simbInicial = simbInicial;
     }
 
-    
     public Gramatica(String path) {
         this.path = path;
         //Inicialización de variables.
@@ -33,7 +33,6 @@ public class Gramatica {
         simbInicial = new VN();
 
         //Lectura de fichero.
-
         LectorFichero lF = new LectorFichero(path);
         lF.analizarFichero(listaVN, listaVT, producciones, simbInicial);
 
@@ -75,10 +74,10 @@ public class Gramatica {
     //Métodos.
     @Override
     public String toString() {
-        return ("Lista de simbolos no terminales:\n" + listaVN.toString()
+        return "Lista de simbolos no terminales:\n" + listaVN.toString()
                 + "\nLista de simbolos terminales:\n" + listaVT.toString()
                 + "\nProducciones:\n" + mostrarProducciones()
-                + "Simbolo inicial: " + simbInicial.toString());
+                + "Simbolo inicial: " + simbInicial.toString();
     }
 
     private String mostrarProducciones() {
@@ -113,20 +112,19 @@ public class Gramatica {
         }
         return l;
     }
-    
-    
+
     public void addProduccion(int i, Produccion p) {
-        ((ArrayList<Produccion>)this.producciones).add(i, p);
+        ((ArrayList<Produccion>) this.producciones).add(i, p);
     }
-    
-    public void addVN (VN v) {
+
+    public void addVN(VN v) {
         this.listaVN.add(v);
     }
-    
-    public void addVT (VT v) {
+
+    public void addVT(VT v) {
         this.listaVT.add(v);
     }
-    
+
     public String getPath() {
         return path;
     }

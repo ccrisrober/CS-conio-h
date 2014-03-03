@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Symbols;
 
 /**
@@ -11,13 +10,14 @@ package Symbols;
  * @author Cristian
  */
 public class Move {
+
     protected final int estado;
-    
+
     public Move(int estado) {
         this.estado = estado;
     }
-    
-    public int getMove () {
+
+    public int getMove() {
         return estado;
     }
 }

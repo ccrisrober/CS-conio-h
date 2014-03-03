@@ -1,3 +1,4 @@
+
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -13,11 +14,12 @@ import Symbols.VT;
  * @author Cristian
  */
 public class AnalizadorAscendenteLR extends AnalizadorSintactico {
+
     private final Stack<Integer> stack;
     private int contador;
     private final ConfiguracionLR tabla;
     private LinkedList<VT> cV;
-    
+
     public AnalizadorAscendenteLR(Gramatica g) {
         super(g);
         stack = new Stack<Integer>();
@@ -28,7 +30,7 @@ public class AnalizadorAscendenteLR extends AnalizadorSintactico {
 
     @Override
     public boolean analizar(Collection<VT> c) {
-        this.cV = (LinkedList)((LinkedList)c).clone();
+        this.cV = (LinkedList) ((LinkedList) c).clone();
         boolean salida = false;
         contador = cV.size();
         stack.push(0);   //Empezamos en el estado 0
@@ -40,8 +42,7 @@ public class AnalizadorAscendenteLR extends AnalizadorSintactico {
             Object accion = null;
             try {
                 accion = accion(estadoActual, a);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println("");
                 return false;
             }
@@ -49,8 +50,7 @@ public class AnalizadorAscendenteLR extends AnalizadorSintactico {
             if (accion instanceof Desplazamiento) {
                 stack.push(((Desplazamiento) accion).getDesplazamiento());
                 a = this.siguienteVT();
-            }
-            else if (accion instanceof Reduccion) {
+            } else if (accion instanceof Reduccion) {
                 int nProduccion = ((Reduccion) accion).getReduccion();
                 Produccion p = g.obtenerProduccion(nProduccion);
                 int borrar = p.getConsecuente().size();
@@ -59,12 +59,10 @@ public class AnalizadorAscendenteLR extends AnalizadorSintactico {
                 }
                 int go_to = GOTO(stack.top(), p.getAntecedente());
                 stack.push(go_to);
-            }
-            else if (accion instanceof Aceptado) {
+            } else if (accion instanceof Aceptado) {
                 salida = true;
                 break;
-            }
-            else {
+            } else {
                 salida = false;
                 break;
             }
@@ -79,8 +77,7 @@ public class AnalizadorAscendenteLR extends AnalizadorSintactico {
             VT v = cV.getFirst();
             cV.remove();
             return v;
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -88,8 +85,8 @@ public class AnalizadorAscendenteLR extends AnalizadorSintactico {
     private Object accion(int estado, VT v) {
         return this.tabla.obtenerAccion(estado, v, g.getListaVT());
     }
-    
-    private int GOTO (int estado, VN A) {
+
+    private int GOTO(int estado, VN A) {
         return this.tabla.obtenerGOTO(estado, A, g.getListaVN());
     }
 }
