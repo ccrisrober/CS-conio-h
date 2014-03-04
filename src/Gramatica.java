@@ -1,4 +1,3 @@
-
 import Symbols.V;
 import Symbols.VN;
 import Symbols.VT;
@@ -74,10 +73,10 @@ public class Gramatica {
     //Métodos.
     @Override
     public String toString() {
-        return "Lista de simbolos no terminales:\n" + listaVN.toString()
+        return ("Lista de simbolos no terminales:\n" + listaVN.toString()
                 + "\nLista de simbolos terminales:\n" + listaVT.toString()
                 + "\nProducciones:\n" + mostrarProducciones()
-                + "Simbolo inicial: " + simbInicial.toString();
+                + "Simbolo inicial: " + simbInicial.toString());
     }
 
     private String mostrarProducciones() {
