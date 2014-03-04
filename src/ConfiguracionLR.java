@@ -23,9 +23,9 @@ public class ConfiguracionLR {
     private final int magicNumberY2 = 3;
 
     public ConfiguracionLR() {
-        this.tablaAccion = new Object[magicNumberX][6];
+        this.tablaAccion = new Object[12][6];
         this.rellenarTablaAccion();
-        this.tablaGoto = new int[magicNumberX][magicNumberY2];
+        this.tablaGoto = new int[12][3];
         this.rellenarTablaGoto();
     }
 
